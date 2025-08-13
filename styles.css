@@ -3,7 +3,6 @@
     --bg-night: radial-gradient(circle at center, #330000, #990000);
     --input-day: rgba(255, 255, 255, 0.8);
     --input-night: rgba(255, 255, 255, 0.15);
-}
 body {
     margin: 0;
     height: 100vh;
@@ -18,6 +17,14 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    width: 100vw;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+html {
+    overflow: hidden; 
 }
 /* Partikel background */
 .particle {
@@ -165,4 +172,5 @@ ul.suggestions li.selected {
 @keyframes fall {
     0% { transform: translateY(0) scale(1); opacity: 1; }
     100% { transform: translateY(20px) scale(0.5); opacity: 0; }
+
 }
