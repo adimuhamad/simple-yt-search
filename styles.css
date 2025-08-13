@@ -1,0 +1,168 @@
+:root {
+    --bg-day: radial-gradient(circle at center, #ffcccc, #ff4d4d);
+    --bg-night: radial-gradient(circle at center, #330000, #990000);
+    --input-day: rgba(255, 255, 255, 0.8);
+    --input-night: rgba(255, 255, 255, 0.15);
+}
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.5s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Partikel background */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+    from { transform: translateY(100vh) scale(0.5); opacity: 0.8; }
+    to { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 500px;
+}
+img {
+    width: 180px;
+    margin-bottom: 20px;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    animation: pulse 2s infinite ease-in-out, glow 3s infinite alternate;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px rgba(255,255,255,0.4)); }
+    to { filter: drop-shadow(0 0 20px rgba(255,255,255,0.9)); }
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+@keyframes sparkle {
+    0% { transform: scale(0) translateY(0); opacity: 1; }
+    50% { transform: scale(1.5) translateY(-10px); opacity: 1; }
+    100% { transform: scale(0) translateY(-20px); opacity: 0; }
+}
+.search-wrapper {
+    position: relative; /* Buat parent menjadi acuan posisi */
+    width: 100%;
+    display: flex; /* Gunakan flexbox untuk menengahkan konten */
+    align-items: center;
+    justify-content: center;
+}
+input {
+    padding: 14px 20px;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    text-align: center;
+    border-radius: 40px;
+    color: white;
+    background: var(--input-night);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+}
+input:focus {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+.loading-spinner {
+    position: absolute; /* Posisikan spinner secara absolut */
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #ff0000;
+    border-radius: 50%;
+    display: none; /* Sembunyikan secara default */
+    animation: spin 1s linear infinite;
+}
+.loading-spinner.visible {
+    display: block;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+ul.suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 200px;
+    overflow-y: auto;
+}
+ul.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s, transform 0.3s ease-out, opacity 0.3s ease-out;
+    transform: translateY(-10px); /* Mulai dari atas */
+    opacity: 0; /* Mulai tidak terlihat */
+}
+ul.suggestions li:hover {
+    background: rgba(255,255,255,0.1);
+}
+ul.suggestions li.selected {
+    background: rgba(255, 0, 0, 0.4);
+}
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.filter-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+.filter-btn.active, .filter-btn:hover {
+    background: rgba(255,0,0,0.7);
+}
+.confetti {
+    position: absolute;
+    font-size: 18px;
+    animation: fall 1s forwards;
+    pointer-events: none;
+}
+@keyframes fall {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(20px) scale(0.5); opacity: 0; }
+}
