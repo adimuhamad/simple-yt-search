@@ -25,3 +25,7 @@ Fitur-fitur utamanya terinspirasi dari pengalaman pencarian YouTube yang modern,
 2.  Mulai ketik di kolom pencarian.
 3.  Pilih saran dari daftar yang muncul, atau gunakan tombol filter untuk menyaring.
 4.  Tekan **Enter** untuk memulai pencarian di YouTube.
+
+## 📸 Screenshot
+
+<img width="1365" height="630" alt="image" src="https://github.com/user-attachments/assets/4856b3f9-062f-4a4d-b44a-816e3d003cb4" />
